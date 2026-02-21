@@ -4,9 +4,6 @@ node_modules
 # all sub node folders
 /node_modules
 
-# server public folders
-server/public
-
 # all coverage folders
 coverage
 

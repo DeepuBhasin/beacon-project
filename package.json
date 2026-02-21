@@ -15,7 +15,7 @@
     "clean-node-modules": "rm -rf node_modules && rm -rf server/node_modules && rm -rf client/node_modules",
     "clean-coverage": "rm -rf server/coverage && rm -rf client/coverage",
     "clean": "npm run clean-dist && npm run clean-node-modules && npm run clean-coverage",
-    "deploy": "npm run build --prefix client && npm run start --prefix server",
+    "deploy": "npm run clean-dist && npm run build --prefix client && npm run start --prefix server",
     "test": "npm run test --prefix server && npm run test --prefix client"
   },
   "keywords": [],
