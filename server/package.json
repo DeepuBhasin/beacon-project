@@ -1,19 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node ./server.js"
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "cors": "^2.8.6",
     "express": "^5.2.1",
+    "cors": "^2.8.6",
     "morgan": "^1.10.1",
-    "nasa-project": "file:..",
     "ws": "^8.19.0"
   }
 }
