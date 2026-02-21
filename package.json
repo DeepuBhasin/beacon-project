@@ -1,0 +1,28 @@
+{
+  "name": "nasa-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "server-simple-command": "cd server && npm run start",
+    "client-simple-command": "cd client && npm run start",
+    "setup": "npm install && npm run setup:client && npm run setup:server",
+    "setup:client": "npm install --prefix client",
+    "setup:server": "npm install --prefix server",
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix client",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "clean-dist": "rm -rf server/public && rm -rf client/build ",
+    "clean-node-modules": "rm -rf node_modules && rm -rf server/node_modules && rm -rf client/node_modules",
+    "clean-coverage": "rm -rf server/coverage && rm -rf client/coverage",
+    "clean": "npm run clean-dist && npm run clean-node-modules && npm run clean-coverage",
+    "deploy": "npm run clean-dist && npm run build --prefix client && npm run start --prefix server",
+    "test": "npm run test --prefix server && npm run test --prefix client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
