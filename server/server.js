@@ -71,12 +71,15 @@ app.post("/data", (req, res) => {
   });
 });
 
-// for static files
-app.use(express.static(path.join(__dirname, "..", "public")));
-app.use("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+const publicPath = path.join(__dirname, "public");
+
+// Serve CSS, JS, images
+app.use(express.static(publicPath));
+
+// SPA / fallback route
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(publicPath, "index.html"));
 });
-// end of static files
 
 // Start server
 const PORT = 5000;
