@@ -61,6 +61,9 @@ app.post("/data", (req, res) => {
   try {
     const payload = req.body;
 
+    /* Log raw data from device */
+    console.log("📥 Device data received:", JSON.stringify(payload, null, 2));
+
     if (!Array.isArray(payload)) {
       return res.status(400).json({
         success: false,
@@ -103,6 +106,12 @@ app.post("/data", (req, res) => {
       "RSSI@0m": item["RSSI@0m"] ?? null,
       RawData: item.RawData ?? null,
     }));
+
+    /* Log formatted data being forwarded */
+    console.log(
+      "📤 Forwarding to clients:",
+      JSON.stringify(formattedData, null, 2),
+    );
 
     /* 🔧 FIX: Broadcast RAW + COMPLETE data */
     clients.forEach((ws) => {
