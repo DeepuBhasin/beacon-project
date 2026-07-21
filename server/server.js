@@ -108,10 +108,7 @@ app.post("/data", (req, res) => {
     }));
 
     /* Log formatted data being forwarded */
-    console.log(
-      "📤 Forwarding to clients:",
-      JSON.stringify(formattedData, null, 2),
-    );
+    console.log("📤 Forwarding to clients:", JSON.stringify(formattedData, null, 2));
 
     /* 🔧 FIX: Broadcast RAW + COMPLETE data */
     clients.forEach((ws) => {
